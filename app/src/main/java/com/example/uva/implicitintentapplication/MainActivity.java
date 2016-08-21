@@ -24,9 +24,15 @@ public class MainActivity extends AppCompatActivity {
                 intent.setData(Uri.parse("http://www.google.com"));
                 chooser = Intent.createChooser(intent, "Open Website Using...");
                 if (intent.resolveActivity(getPackageManager()) != null)
-                    startActivity(intent);
+                    startActivity(chooser);
                 break;
             case R.id.bShowMap:
+                intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse("http://maps.google.com/maps?q=" + latitude + "," + longitude + "(Label Point)"));
+                intent.setData(Uri.parse("http://maps.google.com/maps?q=38.8977,-77.0365"  + "(Label Point)"));
+                chooser = Intent.createChooser(intent, "Open Map Using...");
+                if (intent.resolveActivity(getPackageManager()) != null)
+                    startActivity(chooser);
                 break;
             case R.id.bSendEmail:
                 break;
