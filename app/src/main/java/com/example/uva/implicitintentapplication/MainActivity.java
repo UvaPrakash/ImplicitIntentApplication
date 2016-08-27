@@ -66,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(chooser);
                 break;
             case R.id.bCallNumber:
+                intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:+919952974163"));
+                if (intent.resolveActivity(getPackageManager()) != null)
+                    startActivity(intent);
                 break;
         }
     }
